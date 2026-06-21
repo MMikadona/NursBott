@@ -114,27 +114,28 @@ def handle_spotify_request(message):
     )
 
 # Обработка нажатий на обычные кнопки меню (ВСЕГДА В САМОМ НИЗУ)
+# Обработка нажатий на обычные кнопки меню (ВСЕГДА В САМОМ НИЗУ)
 @bot.message_handler(content_types=['text'])
 def message_reply(message):
     if DEBUG_MODE:
         print(f"[DEBUG] Пользователь нажал кнопку: {message.text}")
 
     if message.text == '👤 О себе':
-        bot.send_message(message.chat.id, CONTENT['about'])
+        bot.send_message(message.chat.id, CONTENT['about'], parse_mode='Markdown')
     elif message.text == '🎯 Моя цель':
-        bot.send_message(message.chat.id, CONTENT['goal'])
+        bot.send_message(message.chat.id, CONTENT['goal'], parse_mode='Markdown')
     elif message.text == '🚀 Как я пришел в IT':
-        bot.send_message(message.chat.id, CONTENT['history'])
+        bot.send_message(message.chat.id, CONTENT['history'], parse_mode='Markdown')
     elif message.text == '🧠 Мой ментор':
-        bot.send_message(message.chat.id, CONTENT['mentor'])
+        bot.send_message(message.chat.id, CONTENT['mentor'], parse_mode='Markdown')
     elif message.text == '📈 Точка А → Точка Б':
-        bot.send_message(message.chat.id, CONTENT['progress'])
+        bot.send_message(message.chat.id, CONTENT['progress'], parse_mode='Markdown')
     elif message.text == '🎸 Хобби':
-        bot.send_message(message.chat.id, CONTENT['hobbies'])
+        bot.send_message(message.chat.id, CONTENT['hobbies'], parse_mode='Markdown')
     elif message.text == '💻 Мои работы':
-        bot.send_message(message.chat.id, CONTENT['works'])
+        bot.send_message(message.chat.id, CONTENT['works'], parse_mode='Markdown')
     elif message.text == '🔗 GitHub':
-        bot.send_message(message.chat.id, CONTENT['github'])
+        bot.send_message(message.chat.id, CONTENT['github'], parse_mode='Markdown')
     else:
         bot.send_message(message.chat.id, 'Пожалуйста, используйте кнопки меню или введите /help.')
 
