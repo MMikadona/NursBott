@@ -3,6 +3,7 @@ import re
 import json
 import telebot
 from telebot import types
+import os
 
 # --- ТРЕБОВАНИЕ: Аргументы командной строки через sys.argv ---
 DEBUG_MODE = False
@@ -12,7 +13,7 @@ if "--debug" in sys.argv:
     DEBUG_MODE = True
     print("[DEBUG] Бот запущен в режиме отладки! Все логи будут выводиться сюда.")
 
-token = '8215096456:AAFwFt2NUZN-fEvLHa1zzt0RA8BpYxI4hm4'
+token = os.environ.get('BOT_TOKEN', '')
 bot = telebot.TeleBot(token)
 
 # Загружаем тексты из файла config.json
